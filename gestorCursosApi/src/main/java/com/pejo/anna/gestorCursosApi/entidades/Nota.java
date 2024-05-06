@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,7 +32,7 @@ public class Nota {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
+	@Null
 	@Min(0)
 	@Positive
 	@Digits(integer = 7, fraction = 2)
@@ -46,4 +46,5 @@ public class Nota {
 	@ManyToOne
 	@JoinColumn(name = "id_curso")
 	private Curso curso;
+	
 }
