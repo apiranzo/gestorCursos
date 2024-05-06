@@ -36,5 +36,9 @@ public interface NotaRepository extends JpaRepository<Nota, Long>{
     // Consulta JPQL para obtener Notas y Cursos de UN alumno específico
     @Query("FROM Nota n  WHERE n.alumno.id = :idAlumno")
     Iterable<Nota> listadoNotasAlumno(@Param("idAlumno") Long idAlumno);
+    
+    // Consulta JPQL para obtener No PRESENTADOS de un Curso
+    @Query("SELECT COUNT(DISTINCT n.id) FROM Nota n WHERE n.curso.id = :idCurso AND n.valor IS NULL")
+    Long noPresentadosCurso(@Param("idCurso") Long idCurso);
 
 }

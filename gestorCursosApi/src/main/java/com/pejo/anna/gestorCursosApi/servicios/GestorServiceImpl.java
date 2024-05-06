@@ -198,6 +198,13 @@ public class GestorServiceImpl implements GestorService{
 	public Iterable<Nota> listadoNotasAlumno(Long idAlumno) {
 		return notaRepository.listadoNotasAlumno(idAlumno);
 	}
+
+	@Override
+	public Long noPresentados(Long idCurso) {
+		return notaRepository.noPresentadosCurso(idCurso);
+	}
+	
+	
 	
 	
 }

@@ -37,6 +37,7 @@ public class CursoController {
 		Long totalAlumnosCurso = gestorServicio.totalAlumnosCurso(id);
 		Long totalAprobados = gestorServicio.totalAlumnosAprobadosCurso(id);
 		Long porcentajeAprobados = gestorServicio.porcentajeAlumnosCurso(totalAprobados);
+		
 
 		model.addAttribute("curso", gestorServicio.verCurso(id));
 		model.addAttribute("alumnos", gestorServicio.listarAlumnosCurso(id));
@@ -45,6 +46,7 @@ public class CursoController {
 		model.addAttribute("totalAlumnosCurso", totalAlumnosCurso);
 		model.addAttribute("totalAprobados", totalAprobados);
 		model.addAttribute("porcentajeAprobados", porcentajeAprobados);
+		model.addAttribute("noPresentados", gestorServicio.noPresentados(id));
 
 		return "curso";
 	}

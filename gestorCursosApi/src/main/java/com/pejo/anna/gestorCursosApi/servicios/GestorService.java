@@ -92,6 +92,9 @@ public interface GestorService {
 	default Iterable<Nota> listadoNotasAlumno(Long idAlumno){
 		throw new UnsupportedOperationException("NO IMPLEMENTADO");
 	}
+	default Long noPresentados(Long idCurso) {
+		throw new UnsupportedOperationException("NO IMPLEMENTADO");
+	}
 	
 
 }
