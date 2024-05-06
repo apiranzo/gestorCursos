@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Alumne</title>
+<main>
+	<div>
+		<h1>Alumne</h1>
+		
+		<p>INFORMACIÓ DE L'ALUMNE: 
+		NUM.registre / nom / cognom / cursos / notes </p>
+
+		<div th:switch="${alumno}">
+			<h2 th:case="null">No hay Alumno</h2>
+			<div th:case="*">
+				<p th:text="${alumno.id}"></p>
+				<p th:text="${alumno.nombre}"></p>
+				<p th:text="${alumno.apellidos}"></p>
+				<div>
+
+					<h2>Cursos alumno</h2>
+
+					<div th:switch="${cursosAlumno}">
+						<h2 th:case="null">No hay cursos del Alumno</h2>
+						<div th:case="*">
+							<table>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nombre</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="cursoAlumno : ${cursosAlumno}">
+										<td th:text="${cursoAlumno.id}"></td>
+										<td th:text="${cursoAlumno.nombreCurso}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div th:switch="${notasAlumno}">
+						<h2 th:case="null">No hay cursos del Alumno</h2>
+						<div th:case="*">
+							<table>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Curso</th>
+										<th>Nota</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="notasAlumn : ${notasAlumno}">
+										<td th:text="${notasAlumn.id}"></td>
+										<td th:text="${notasAlumn.curso.nombreCurso}"></td>
+										<td th:text="${notasAlumn.valor}"></td>
+										<td><a th:href="@{/notas/{id}(id=${notasAlumn.id})}">Editar</a></td>
+										<td><a th:href="@{/notas/borrar/{id}(id=${notasAlumn.id})}">Borrar</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<a th:href="@{/alumno/borrar/{id}(id=${alumno.id})}">Borrar Alumno</a>
+	</div>
+</main>

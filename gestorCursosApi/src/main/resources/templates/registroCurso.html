@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Registre Curs</title>
+<main>
+
+	<h1>Registro Curso</h1>
+
+	<form action="#" th:action="@{/registroCurso}"
+		th:object="${curso}" method="post">
+		<input type="hidden" th:field="*{id}">
+		<label for="nombreCurso">Nombre Curso</label> <input type="text" th:field="*{nombreCurso}"
+			id="nombreCurso" placeholder="NombreCurso"> <span
+			th:if="${#fields.hasErrors('nombreCurso')}" th:errors="*{nombreCurso}"></span> 
+		
+		<input type="submit" value="Guradar">
+	</form>
+</main>

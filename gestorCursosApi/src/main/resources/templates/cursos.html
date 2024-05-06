@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Cursos</title>
+<main>
+	<div>
+		<h1>Cursos</h1>
+		<p>INFORMACIÓ DELS CURSOS: 
+		NUM.registre / NomCurs / DataCurs /  </p>
+
+		<div th:switch="${cursos}">
+			<h2 th:case="null">No hay cursos Registrados</h2>
+			<div th:case="*">
+				<h2>Cursos</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="curso : ${cursos}">
+							<td th:text="${curso.id}"></td>
+							<td th:text="${curso.nombreCurso}"></td>
+							<td><a th:href="@{/curso/{id}(id=${curso.id})}">Ver</a></td>
+							<td><a th:href="@{/registrarCurso/{id}(id=${curso.id})}">Editar</a></td>
+							<td><a th:href="@{/curso/borrar/{id}(id=${curso.id})}">Borrar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+				<a href="/registrarCurso">Añadir Curso</a>
+			</p>
+		</div>
+	</div>
+</main>

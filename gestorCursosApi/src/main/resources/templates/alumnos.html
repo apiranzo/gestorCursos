@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Alumnes</title>
+<main>
+	<div>
+		<h1>Alumnes</h1>
+		
+		<p>INFORMACIÓ DELS ALUMNES: 
+		NUM.registre / nom / curs / apteNoapte </p>
+
+		<div th:switch="${alumnos}">
+			<h2 th:case="null">No hay Alumnos Registrados</h2>
+			<div th:case="*">
+				<h2>Alumnos</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="alumno : ${alumnos}">
+							<td th:text="${alumno.id}"></td>
+							<td th:text="${alumno.nombre}"></td>
+							<td th:text="${alumno.apellidos}"></td>
+							<td><a th:href="@{/alumno/{id}(id=${alumno.id})}">Ver</a></td>
+							<td><a th:href="@{/registrarAlumno/{id}(id=${alumno.id})}">Editar</a></td>
+							<td><a th:href="@{/alumno/borrar/{id}(id=${alumno.id})}">Borrar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+				<a href="/registrarAlumno">Añadir Alumno</a>
+			</p>
+		</div>
+</main>

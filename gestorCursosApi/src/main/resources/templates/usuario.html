@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Usuari</title>
+<main>
+	<div>
+		<h1>Usuari</h1>
+
+		<div th:switch="${usuario}">
+			<h2 th:case="null">No hay Usuario</h2>
+			<div th:case="*">
+				<p th:text="${usuario.id}"></p>
+				<p th:text="${alumno.nombre}"></p>
+				<p th:text="${alumno.apellidos}"></p>
+				
+			</div>
+		</div>
+	</div>
+	<div>
+		<a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar Usuario</a>
+	</div>
+</main>

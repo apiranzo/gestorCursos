@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Usuaris</title>
+<main>
+	
+		<h1>Usuarios</h1>
+
+		<div th:switch="${usuarios}">
+			<h2 th:case="null">No hay usuarios Registrados</h2>
+			<div th:case="*">
+				<table class="tablaPersonal table table-striped">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Correo</th>
+							<th>Rol</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="usuario : ${usuarios}">
+							<td th:text="${usuario.nombre}"></td>
+							<td th:text="${usuario.email}"></td>
+							<td th:text="${usuario.rol}"></td>
+							<td><a th:href="@{/registroUsuario/{id}(id=${usuario.id})}">Editar</a></td>
+							<td><a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+				<a href="/registroUsuario">Añadir Usuario</a>
+			</p>
+		</div>	
+</main>

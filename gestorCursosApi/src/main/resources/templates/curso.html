@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Curs</title>
+<main>
+	<div>
+		<h1>Curs</h1>
+		
+		<p>INFORMACIÓ DEl curs: 
+		NUM.registre / NomcURS / Data / aLUMNES curs / totalAlumnes / Alumnes Aprobats / Alumnes NO presentats / % curs </p>
+
+		<div th:switch="${curso}">
+			<h2 th:case="null">No hay cursos Registrados</h2>
+			<div th:case="*">
+				<p th:text="${curso.nombreCurso}"></p>
+				<p th:text="${totalAlumnosCurso}"></p>
+				<p th:text="${totalAprobados}"></p>
+				<p th:text="${porcentajeAprobados}"></p>
+				<div>
+		<h2>Alumnos Aprobados</h2>
+
+		<div th:switch="${alumnosAprobados}">
+			<h2 th:case="null">No hay Alumnos Aprobados</h2>
+			<div th:case="*">
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="alumnoAprobado : ${alumnosAprobados}">
+							<td th:text="${alumnoAprobado.id}"></td>
+							<td th:text="${alumnoAprobado.nombre}"></td>
+							<td th:text="${alumnoAprobado.apellidos}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div>
+		<h1>Alumnos</h1>
+
+		<div th:switch="${alumnos}">
+			<h2 th:case="null">No hay Alumnos Registrados</h2>
+			<div th:case="*">
+				<h2>Alumnos</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="alumno : ${alumnos}">
+							<td th:text="${alumno.id}"></td>
+							<td th:text="${alumno.nombre}"></td>
+							<td th:text="${alumno.apellidos}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+				<a href="/">Añadir Alumno</a>
+			</p>
+		</div>
+	</div>
+
+
+</main>

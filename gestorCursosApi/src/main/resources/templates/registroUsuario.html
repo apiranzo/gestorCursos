@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Registre Usuari</title>
+<main>
+
+	<h1>Registro Nuevo</h1>
+
+	<form action="#" th:action="@{/registroUsuario}"
+		th:object="${usuario}" method="post">
+		<input type="hidden" th:field="*{id}">
+		<label for="nombre">Name</label> <input type="text" th:field="*{nombre}"
+			id="nombre" placeholder="Nombre"> <span
+			th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span> 
+		<label
+			for="email">Email</label> <input type="email" th:field="*{email}"
+			id="email" placeholder="Email"> <span
+			th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span> 
+		<label
+			for="password">Password</label> <input type="text" th:field="*{password}"
+			id="password" placeholder="password"> <span
+			th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span> 
+		<label
+			for="rol">Rol</label> <input type="text" th:field="*{rol}"
+			id="rol" placeholder="rol"> <span
+			th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></span> 
+	<!-- 		<label
+			for="rol">Rol:</label> <select name="rol" id="rol">
+			<option value="ADMIN">ADMIN</option>
+			<option value="USER">USER</option>
+		</select>  -->
+		<input type="submit" value="Guradar">
+	</form>
+</main>

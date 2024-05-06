@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>Gestor de Cursos</title>
+<main>
+	<div class="container w-75">
+		<div>
+			<h1>Usuaris</h1>
+
+			<div class="container" th:switch="${usuarios}">
+				<h2 class= "row" th:case="null">No hay usuarios Registrados</h2>
+				<div class="row table-responsive-sm" th:case="*">
+
+					<table class="table table-sm">
+						<thead class="thead-light">
+						<caption>Tabla usuarios</caption>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Email</th>
+							<th scope="col">Rol</th>
+							<th scope="col"></th>
+						</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="usuario : ${usuarios}">
+								<td th:text="${usuario.id}"></td>
+								<td th:text="${usuario.nombre}"></td>
+								<td th:text="${usuario.email}"></td>
+								<td th:text="${usuario.rol}"></td>
+								<td><a class="btn btn-outline-info btn-sm" role="button"
+									th:href="@{/usuario/{id}(id=${usuario.id})}">Ver</a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div class="row justify-content-end">
+					<a role="button" href="/registroUsuario" class="col-2 btn btn-warning">Añadir
+						Urusario</a>
+				</div>
+
+
+			</div>
+		</div>
+		<hr class="hr m-5">	
+		<div>
+			<h1>Cursos</h1>
+
+			<div class="container" th:switch="${cursos}">
+				<h2 class= "row" th:case="null">No hay cursos Registrados</h2>
+				<div class="row table-responsive-sm" th:case="*">
+
+					<table class="table table-sm">
+						<thead class="thead-light">
+						<caption>Tabla cursos</caption>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Nombre</th>
+							<th scope="col"></th>
+						</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="curso : ${cursos}">
+								<td th:text="${curso.id}"></td>
+								<td th:text="${curso.nombreCurso}"></td>
+								<td><a class="btn btn-outline-info btn-sm" role="button"
+									th:href="@{/curso/{id}(id=${curso.id})}">Ver</a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div class="row justify-content-end">
+					<a role="button" href="/registroCurso" class="col-2 btn btn-warning">Añadir
+						Curso</a>
+				</div>
+
+
+			</div>
+		</div>
+		<hr class="hr m-5">	
+		<div>
+			<h1>Alumnos</h1>
+
+			<div class="container" th:switch="${alumnos}">
+				<h2 class= "row" th:case="null">No hay alumnos Registrados</h2>
+				<div class="row table-responsive-sm" th:case="*">
+
+					<table class="table table-sm">
+						<thead class="thead-light">
+						<caption>Tabla alumnos</caption>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellidos</th>
+							<th scope="col"></th>
+						</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="alumno : ${alumnos}">
+								<td th:text="${alumno.id}"></td>
+								<td th:text="${alumno.nombre}"></td>
+								<td th:text="${alumno.apellidos}"></td>
+								<td><a class="btn btn-outline-info btn-sm" role="button"
+									th:href="@{/alumno/{id}(id=${alumno.id})}">Ver</a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div class="row justify-content-end">
+					<a role="button" href="/registroAlumno" class="col-2 btn btn-warning">Añadir Alumno</a>
+				</div>
+
+
+			</div>
+		</div>
+		<hr class="hr m-5">	
+		<div>
+			<h1>Notas</h1>
+
+			<div class="container" th:switch="${notas}">
+				<h2 class= "row" th:case="null">No hay notas Registrados</h2>
+				<div class="row table-responsive-sm" th:case="*">
+
+					<table class="table table-sm">
+						<thead class="thead-light">
+						<caption>Tabla notas</caption>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Curso</th>
+							<th scope="col">ID Alumno</th>
+							<th scope="col">Nota</th>
+							<th scope="col"></th>
+						</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="nota : ${notas}">
+								<td th:text="${nota.id}"></td>
+								<td th:text="${nota.curso.nombreCurso}"></td>
+								<td th:text="${nota.alumno.id}"></td>
+								<td th:text="${nota.valor}"></td>
+								<td><a class="btn btn-outline-info btn-sm" role="button"
+									th:href="@{/nota/{id}(id=${nota.id})}">Ver</a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div class="row justify-content-end">
+					<a role="button" href="/registroNota" class="col-2 btn btn-warning">Añadir Nota</a>
+				</div>
+
+
+			</div>
+		</div>
+	
+	</div>
+
+
+</main>
