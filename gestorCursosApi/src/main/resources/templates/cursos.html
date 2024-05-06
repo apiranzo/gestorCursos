@@ -27,14 +27,14 @@
 							<td th:text="${curso.id}"></td>
 							<td th:text="${curso.nombreCurso}"></td>
 							<td><a th:href="@{/curso/{id}(id=${curso.id})}">Ver</a></td>
-							<td><a th:href="@{/registrarCurso/{id}(id=${curso.id})}">Editar</a></td>
+							<td><a th:href="@{/registroCurso/{id}(id=${curso.id})}">Editar</a></td>
 							<td><a th:href="@{/curso/borrar/{id}(id=${curso.id})}">Borrar</a></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<p>
-				<a href="/registrarCurso">Añadir Curso</a>
+				<a href="/registroCurso">Añadir Curso</a>
 			</p>
 		</div>
 	</div>
