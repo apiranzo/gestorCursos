@@ -36,7 +36,7 @@ public class CursoController {
 		
 		Long totalAlumnosCurso = gestorServicio.totalAlumnosCurso(id);
 		Long totalAprobados = gestorServicio.totalAlumnosAprobadosCurso(id);
-		Long porcentajeAprobados = gestorServicio.porcentajeAlumnosCurso(totalAprobados, totalAlumnosCurso);
+		Long porcentajeAprobados = gestorServicio.porcentajeAlumnosCurso(totalAprobados);
 
 		model.addAttribute("curso", gestorServicio.verCurso(id));
 		model.addAttribute("alumnos", gestorServicio.listarAlumnosCurso(id));

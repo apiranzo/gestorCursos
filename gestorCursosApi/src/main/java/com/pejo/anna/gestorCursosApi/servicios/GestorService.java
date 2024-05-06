@@ -86,7 +86,7 @@ public interface GestorService {
 	default Iterable<Alumno> listarAlumnosAprobadosDeCurso(Long idCurso){
 		throw new UnsupportedOperationException("NO IMPLEMENTADO");
 	}
-	default Long porcentajeAlumnosCurso(Long idCurso, Long totalAlumnos) {
+	default Long porcentajeAlumnosCurso(Long idCurso) {
 		throw new UnsupportedOperationException("NO IMPLEMENTADO");
 	}
 	default Iterable<Nota> listadoNotasAlumno(Long idAlumno){

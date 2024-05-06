@@ -33,6 +33,8 @@ public class GestorServiceImpl implements GestorService{
 		var pep = alumnoRepository.save(Alumno.builder().nombre("Pep").apellidos("Perez").build());
 		var jaume = alumnoRepository.save(Alumno.builder().nombre("Jaume").apellidos("Margarita").build());
 		var miriam = alumnoRepository.save(Alumno.builder().nombre("Miriam").apellidos("Jon").build());
+		var fina = alumnoRepository.save(Alumno.builder().nombre("Fina").apellidos("Jon").build());
+
 
 		var catala = cursoRepository.save(Curso.builder().nombreCurso("Catalá").build());
 		var castella = cursoRepository.save(Curso.builder().nombreCurso("Castellà").build());
@@ -54,6 +56,10 @@ public class GestorServiceImpl implements GestorService{
 		notaRepository.save(Nota.builder().alumno(miriam).curso(catala).valor(new BigDecimal(3.5)).build());
 		notaRepository.save(Nota.builder().alumno(miriam).curso(castella).valor(new BigDecimal(2.5)).build());
 		notaRepository.save(Nota.builder().alumno(miriam).curso(filosofia).valor(new BigDecimal(10)).build());
+		
+		notaRepository.save(Nota.builder().alumno(fina).curso(catala).valor(null).build());
+		notaRepository.save(Nota.builder().alumno(fina).curso(castella).valor(new BigDecimal(7.5)).build());
+		notaRepository.save(Nota.builder().alumno(fina).curso(historia).valor(new BigDecimal(3.5)).build());
 
 		
 		
@@ -169,12 +175,22 @@ public class GestorServiceImpl implements GestorService{
 	}
 
 	@Override
-	public Long porcentajeAlumnosCurso(Long idCurso, Long totalAlumnos) {
+	public Long porcentajeAlumnosCurso(Long idCurso) {
 		
-		var totalNota = notaRepository.totalAlumnosAprobadosDeCurso(totalAlumnos);
+		var totalNota = notaRepository.totalAlumnosAprobadosDeCurso(idCurso);
 		var totalAlum = notaRepository.totalAlumnosDeCurso(idCurso);
-		Long resultado = (long) ((totalNota / totalAlum) * 100.0);
-		return resultado;
+		
+		if (totalAlum == 0) {
+	        return 0L; // If there are no students in the course, return 0%
+	    }
+	    
+	    // Calculate percentage with floating-point division, then round to Long
+		double percentage = (totalNota * 100.0) / totalAlum;
+	    Long resultado = Math.round(percentage);
+	    System.out.println(totalNota);
+	    System.out.println(totalAlum);
+	    System.out.println(resultado);
+	    return resultado;
 		
 	}
 

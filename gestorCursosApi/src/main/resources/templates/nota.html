@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>GdC - Nota</title>
+<main>
+	<div>
+		<h1>Nota</h1>
+		
+		<p>INFORMACIÓ DE Nota: 
+		NUM.registre / nom / cognom / cursos / notes </p>
+
+		<div th:switch="${nota}">
+			<h2 th:case="null">No hay Nota</h2>
+			<div th:case="*">
+				<p th:text="${nota.id}"></p>
+				<p th:text="${nota.curso.nombreCurso}"></p>
+				<p th:text="${nota.alumno.id}"></p>
+				<p th:text="${nota.valor}"></p>
+				
+			</div>
+		</div>
+	</div>
+	<div>
+		<a th:href="@{/nota/borrar/{id}(id=${nota.id})}">Borrar Nota</a>
+	</div>
+</main>

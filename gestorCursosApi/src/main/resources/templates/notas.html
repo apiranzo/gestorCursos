@@ -30,8 +30,8 @@
 							<td th:text="${nota.valor}"></td>
 							<td th:text="${nota.alumno.id}"></td>
 							<td th:text="${nota.curso.nombreCurso}"></td>
-							<td><a th:href="@{/notas/{id}(id=${nota.id})}">Editar</a></td>
-							<td><a th:href="@{/notas/borrar/{id}(id=${nota.id})}">Borrar</a></td>
+							<td><a th:href="@{/nota/{id}(id=${nota.id})}">Editar</a></td>
+							<td><a th:href="@{/nota/borrar/{id}(id=${nota.id})}">Borrar</a></td>
 						</tr>
 					</tbody>
 				</table>

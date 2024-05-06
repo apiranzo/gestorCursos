@@ -2,6 +2,7 @@ package com.pejo.anna.gestorCursosApi.entidades;
 
 import java.math.BigDecimal;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Nota {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Null
+	@Nullable
 	@Min(0)
 	@Positive
 	@Digits(integer = 7, fraction = 2)
