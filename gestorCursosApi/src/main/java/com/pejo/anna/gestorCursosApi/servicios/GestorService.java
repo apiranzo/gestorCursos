@@ -1,5 +1,7 @@
 package com.pejo.anna.gestorCursosApi.servicios;
 
+import java.math.BigDecimal;
+
 import com.pejo.anna.gestorCursosApi.entidades.Alumno;
 import com.pejo.anna.gestorCursosApi.entidades.Curso;
 import com.pejo.anna.gestorCursosApi.entidades.Nota;
@@ -93,6 +95,10 @@ public interface GestorService {
 		throw new UnsupportedOperationException("NO IMPLEMENTADO");
 	}
 	default Long noPresentados(Long idCurso) {
+		throw new UnsupportedOperationException("NO IMPLEMENTADO");
+	}
+	
+	default void inscribirAlumnoCursoNota(Long idAlumno, Long idCurso, BigDecimal valor) {
 		throw new UnsupportedOperationException("NO IMPLEMENTADO");
 	}
 	

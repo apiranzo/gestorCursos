@@ -203,8 +203,11 @@ public class GestorServiceImpl implements GestorService{
 	public Long noPresentados(Long idCurso) {
 		return notaRepository.noPresentadosCurso(idCurso);
 	}
+
+	@Override
+	public void inscribirAlumnoCursoNota(Long idAlumno, Long idCurso, BigDecimal valor) {
+		notaRepository.gestionNotaAlumnoCurso(idAlumno, idCurso, valor);
+	}
 	
-	
-	
-	
+		
 }

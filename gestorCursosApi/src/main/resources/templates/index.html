@@ -3,12 +3,165 @@
 	xmlns:th="http://www.thymeleaf.org">
 <title>Gestor de Cursos</title>
 <main>
+	<section id="home">
+		<div class="container col-xxl-8 px-4 py-lg-5">
+			<div
+				class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-1">
+				<div class="col-12 col-sm-6 mb-2 col-lg-3">
+					<img src="media/procesador_verde_claro.png"
+						class="d-block mx-auto img-fluid float-center"
+						alt="Logo web desarrollo" width="150" height="85" loading="lazy">
+				</div>
+				<div class="col-lg-6">
+					<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Gestor
+						de Cursos</h1>
+					<p class="lead">Sistemas de gestión d'informació de cursos,
+						alumnes i notes</p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section id="html" class="container px-5">
+		<h1 class="my-2">Recursos</h1>
+		<h2></h2>
+		<h3 class="lead mb-4 pb-3 border-bottom">Grups de contingut de
+			l'applicació</h3>
+		<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+			<div class="homecards col d-flex align-items-start p-3">
+				<div class="icon-square text-dark flex-shrink-0 me-3 pt-2">
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="1.8em"
+						height="1.8em" fill="currentColor" class="bi bi-book"
+						viewBox="0 0 16 16">
+  						<path
+							d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+						</svg>
+				</div>
+				<div>
+					<h2>Cursos</h2>
+					<p>Consulta, creació, actualització y eliminació dels cursos</p>
+					<a href="#" class="btn btn-primary"> Gestionar </a>
+				</div>
+			</div>
+			<div class="homecards col d-flex align-items-start p-3">
+				<div class="icon-square text-dark flex-shrink-0 me-3 pt-2">
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="1.8em"
+						height="1.8em" fill="currentColor" class="bi bi-book"
+						viewBox="0 0 16 16">
+  						  <path
+							d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+
+						</svg>
+				</div>
+				<div>
+					<h2>Alumnes</h2>
+					<p>Consulta, inscripció, actualització y eliminació d'alumnes</p>
+					<a href="#" class="btn btn-primary btn-personal"> Gestionar </a>
+				</div>
+			</div>
+			<div class="homecards col d-flex align-items-start p-3">
+				<div class="icon-square text-dark flex-shrink-0 me-3 pt-2">
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="1.8em"
+						height="1.8em" fill="currentColor" class="bi bi-book"
+						viewBox="0 0 16 16">
+<path
+							d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z" />
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
+						</svg>
+				</div>
+				<div>
+					<h2>Notes</h2>
+					<p>Consulta, creació, actualització y eliminació de les notes</p>
+					<a href="#" class="btn btn-primary"> Gestionar </a>
+				</div>
+			</div>
+			<div class="homecards col d-flex align-items-start p-3">
+				<div class="icon-square text-dark flex-shrink-0 me-3 pt-2">
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="1.8em"
+						height="1.8em" fill="currentColor" class="bi bi-book"
+						viewBox="0 0 16 16">
+  						  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+
+						</svg>
+				</div>
+				<div>
+					<h2>Usuaris</h2>
+					<p>Consulta, creació, actualització y eliminació dels usuaris</p>
+					<a href="#" class="btn btn-primary"> Gestionar </a>
+				</div>
+			</div>
+		</div>
+		</div>
+		</p>
+
+		<!-- p>lorem5 -->
+		<p>Lorem ipsum dolor sit amet.</p>
+
+		<!-- p>lorem*5 -->
+		<p>
+			<span>Lorem ipsum dolor, sit amet consectetur adipisicing
+				elit. Voluptatibus delectus minima unde placeat iste esse neque
+				dolor suscipit vero ab, qui, sequi, illo animi hic! Amet, distinctio
+				illum. Sint, distinctio.</span><span>Ipsa, recusandae. Sunt,
+				reprehenderit quasi ipsa voluptatum quae amet similique ex! Sint,
+				nobis laudantium mollitia quibusdam libero unde eveniet voluptatum
+				amet et quia, nemo pariatur illum vitae possimus consectetur iste.</span><span>Qui,
+				quod modi. Eos explicabo distinctio ad dolores, error tenetur
+				praesentium cum esse blanditiis accusamus eligendi architecto
+				eveniet unde est obcaecati laudantium alias quaerat. Nisi tempore
+				nostrum praesentium laboriosam tempora!</span><span>Iusto quia
+				mollitia beatae voluptates cupiditate provident illo neque omnis
+				unde officiis. Magnam, facilis, ab totam velit debitis, ad nobis
+				voluptatum corrupti vero vel alias ut sit optio sequi. Iste.</span><span>Accusantium
+				necessitatibus nam ducimus facilis, autem recusandae optio harum
+				molestias nihil consequuntur id praesentium obcaecati adipisci
+				pariatur consequatur, modi ipsam possimus doloremque laboriosam.
+				Soluta molestiae accusamus deserunt, quo fuga optio?</span>
+		</p>
+	</section>
+
+	<section class="container  px-5">
+		<div id="homecards" class="row row-cols-1 row-cols-md-2 g-4">
+			<div class="col">
+				<div class="card h-100">
+					<i class="fa-solid fa-list-check"></i>
+					<div class="card-body">
+						<h2 class="card-title">Objetivos</h2>
+						<p class="card-text">Capacitar a los participantes de la
+							formación a conocer la última tecnología que usan las grandes
+							empresas para desarrollar aplicaciones con Java Enterprise
+							Edition JEE y las herramientas asociadas al desarrollo de
+							aplicaciones web.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card h-100">
+					<i class="fa-solid fa-gears"></i>
+					<div class="card-body">
+						<h2 class="card-title">Metodología</h2>
+						<p class="card-text">El programa se imparte de manera
+							presencial, promoviendo la participación de los participantes.
+							Las exposiciones teóricas son apoyadas por documentación en el
+							Campus Virtual y casos prácticos reales de empresa. El estudio de
+							casos reales en los cuales se realizan debates y buscando la
+							mejor solución al problema a resolver de forma grupal.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
 	<div class="container w-75">
 		<div>
 			<h1>Usuaris</h1>
 
 			<div class="container" th:switch="${usuarios}">
-				<h2 class= "row" th:case="null">No hay usuarios Registrados</h2>
+				<h2 class="row" th:case="null">No hay usuarios Registrados</h2>
 				<div class="row table-responsive-sm" th:case="*">
 
 					<table class="table table-sm">
@@ -37,19 +190,19 @@
 
 				</div>
 				<div class="row justify-content-end">
-					<a role="button" href="/registroUsuario" class="col-2 btn btn-warning">Añadir
-						Urusario</a>
+					<a role="button" href="/registroUsuario"
+						class="col-2 btn btn-warning">Añadir Urusario</a>
 				</div>
 
 
 			</div>
 		</div>
-		<hr class="hr m-5">	
+		<hr class="hr m-5">
 		<div>
 			<h1>Cursos</h1>
 
 			<div class="container" th:switch="${cursos}">
-				<h2 class= "row" th:case="null">No hay cursos Registrados</h2>
+				<h2 class="row" th:case="null">No hay cursos Registrados</h2>
 				<div class="row table-responsive-sm" th:case="*">
 
 					<table class="table table-sm">
@@ -74,19 +227,19 @@
 
 				</div>
 				<div class="row justify-content-end">
-					<a role="button" href="/registroCurso" class="col-2 btn btn-warning">Añadir
-						Curso</a>
+					<a role="button" href="/registroCurso"
+						class="col-2 btn btn-warning">Añadir Curso</a>
 				</div>
 
 
 			</div>
 		</div>
-		<hr class="hr m-5">	
+		<hr class="hr m-5">
 		<div>
 			<h1>Alumnos</h1>
 
 			<div class="container" th:switch="${alumnos}">
-				<h2 class= "row" th:case="null">No hay alumnos Registrados</h2>
+				<h2 class="row" th:case="null">No hay alumnos Registrados</h2>
 				<div class="row table-responsive-sm" th:case="*">
 
 					<table class="table table-sm">
@@ -113,18 +266,19 @@
 
 				</div>
 				<div class="row justify-content-end">
-					<a role="button" href="/registroAlumno" class="col-2 btn btn-warning">Añadir Alumno</a>
+					<a role="button" href="/registroAlumno"
+						class="col-2 btn btn-warning">Añadir Alumno</a>
 				</div>
 
 
 			</div>
 		</div>
-		<hr class="hr m-5">	
+		<hr class="hr m-5">
 		<div>
 			<h1>Notas</h1>
 
 			<div class="container" th:switch="${notas}">
-				<h2 class= "row" th:case="null">No hay notas Registrados</h2>
+				<h2 class="row" th:case="null">No hay notas Registrados</h2>
 				<div class="row table-responsive-sm" th:case="*">
 
 					<table class="table table-sm">
@@ -153,13 +307,14 @@
 
 				</div>
 				<div class="row justify-content-end">
-					<a role="button" href="/registroNota" class="col-2 btn btn-warning">Añadir Nota</a>
+					<a role="button" href="/registroNota" class="col-2 btn btn-warning">Añadir
+						Nota</a>
 				</div>
 
 
 			</div>
 		</div>
-	
+
 	</div>
 
 

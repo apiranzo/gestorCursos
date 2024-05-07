@@ -1,9 +1,13 @@
 package com.pejo.anna.gestorCursosApi.repositorios;
 
+import java.math.BigDecimal;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pejo.anna.gestorCursosApi.entidades.Alumno;
 import com.pejo.anna.gestorCursosApi.entidades.Curso;
@@ -40,5 +44,11 @@ public interface NotaRepository extends JpaRepository<Nota, Long>{
     // Consulta JPQL para obtener No PRESENTADOS de un Curso
     @Query("SELECT COUNT(DISTINCT n.id) FROM Nota n WHERE n.curso.id = :idCurso AND n.valor IS NULL")
     Long noPresentadosCurso(@Param("idCurso") Long idCurso);
+    
+    //Consulta JPQL para INSERTAR Alumno dentro de un Curso
+    @Transactional
+    @Modifying
+    @Query("INSERT INTO Nota (alumno, curso, valor) SELECT a, c, :valor FROM Alumno a, Curso c WHERE c.id = :cursoId AND a.id = :alumnoId")
+    void gestionNotaAlumnoCurso(@Param("alumnoId") Long alumnoId, @Param("cursoId") Long cursoId, @Param("valor") BigDecimal valor);   
 
 }
