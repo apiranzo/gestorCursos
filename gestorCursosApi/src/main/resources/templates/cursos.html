@@ -3,39 +3,52 @@
 	xmlns:th="http://www.thymeleaf.org">
 <title>GdC - Cursos</title>
 <main>
-	<div>
-		<h1>Cursos</h1>
-		<p>INFORMACIÓ DELS CURSOS: 
-		NUM.registre / NomCurs / DataCurs /  </p>
 
-		<div th:switch="${cursos}">
-			<h2 th:case="null">No hay cursos Registrados</h2>
-			<div th:case="*">
-				<h2>Cursos</h2>
-				<table>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Nombre</th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="curso : ${cursos}">
-							<td th:text="${curso.id}"></td>
-							<td th:text="${curso.nombreCurso}"></td>
-							<td><a th:href="@{/curso/{id}(id=${curso.id})}">Ver</a></td>
-							<td><a th:href="@{/registroCurso/{id}(id=${curso.id})}">Editar</a></td>
-							<td><a th:href="@{/curso/borrar/{id}(id=${curso.id})}">Borrar</a></td>
-						</tr>
-					</tbody>
-				</table>
+	<section id="tabla">
+		<h1 class="mt-5 mb-3">Cursos</h1>
+		<div class="container">
+
+			<div class="col-md-8 offset-md-2"  th:switch="${cursos}">
+				<h2 th:case="null">No hi ha cursos registrats</h2>
+				<div class="table-responsive" th:case="*">
+					<table class="table table-hover mb-5 align-middle">
+						<caption>Taula cursos</caption>
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nom del Curs</th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<tr th:each="curso : ${cursos}">
+								<td scope="row" th:text="${curso.id}"></td>
+								<td th:text="${curso.nombreCurso}"></td>
+								<td><small><a class="btn btn-sm btn-outline-info"
+										th:href="@{/curso/{id}(id=${curso.id})}"><i
+											class="bi bi-info-circle"></i></a> <a
+										class="btn btn-sm btn-outline-warning"
+										th:href="@{/registroCurso/{id}(id=${curso.id})}"><i
+											class="bi bi-pencil-square"></i></a> <a
+										class="btn btn-sm btn-outline-danger"
+										th:href="@{/curso/borrar/{id}(id=${curso.id})}"><i
+											class="bi bi-trash"></i></a></small></td>
+								<td><small><a
+										class="btn btn-sm btn-primary btn-personal"
+										href="/registroCurso"><i class="bi bi-plus-circle mr-2"></i>Afegir
+											alumne</a></small></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div>
+					<a class="btn btn-primary btn-personal" href="/registroCurso"><i
+						class="bi bi-plus-circle mr-2"></i>Afegir curs</a>
+				</div>
 			</div>
-			<p>
-				<a href="/registroCurso">Añadir Curso</a>
-			</p>
 		</div>
-	</div>
+	</section>
+	
 </main>

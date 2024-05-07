@@ -1,13 +1,13 @@
 /* FORMULARIOS */
-#form {
+#formPersonal {
     padding: var(--pading-general);
-    display: grid;
     justify-content: center;
 
     & form{
         padding: calc(var(--pading-general) + 1.3rem);
-        
-        background-color: var(--color-fondo-forms);
+        border-radius: 0.5rem;
+        border-color: none;
+        background-color: var(--color-titulos-claro-transparente);
         color: var(--color-titulos);
     }
 
@@ -26,7 +26,6 @@
     justify-content: center;
     align-items: stretch;
 
-    background-color: var(--color-titulos-claro-contrario);
 
     & h1{
         color: var(--color-fondo);

@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/html.css">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -35,10 +36,11 @@
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
 	crossorigin="anonymous"></script>
-	
+
 <!-- Icons -->
 
-    <script src="https://kit.fontawesome.com/4fe330fef8.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/4fe330fef8.js"
+	crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -49,7 +51,7 @@
 			src="media/procesador_verde_claro.png" width="30" height="30"
 			class="d-inline-block align-top" alt="Logo web GdC"> GdC
 		</a>
-		<button class="navbar-toggler navbar-light" type="button"
+		<button class="navbar-toggler navbar-dark" type="button"
 			data-toggle="collapse" data-target="#navbarNavDropdown"
 			aria-controls="navbarNavDropdown" aria-expanded="false"
 			aria-label="Toggle navigation">
@@ -84,32 +86,60 @@
 	<main th:replace="${contenido}">Contenido</main>
 
 
+	<footer class="footer-section">
 
-	<footer
-		class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-		<div class="col-md-4 d-flex align-items-center">
-			<a href="/"
-				class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-				<svg class="bi" width="30" height="24">
-					<use xlink:href="#bootstrap"></use></svg>
-			</a> <span class="mb-3 mb-md-0 text-body-secondary"><font
-				style="vertical-align: inherit;"><font
-					style="vertical-align: inherit;">&copy; 2024 Apiranz.</font></font></span>
+		<div class="container py-3 mt-2 py-5">
+			<ul id="navfooter"
+				class="nav justify-content-center border-bottom pb-3 mb-3">
+				<li class="nav-item"><a th:href="@{/}" class="nav-link px-2 ">Inici</a></li>
+				<li class="nav-item"><a th:href="@{/cursos}"
+					class="nav-link px-2 ">Cursos</a></li>
+				<li class="nav-item"><a th:href="@{/alumnos}"
+					class="nav-link px-2 ">Alumnes</a></li>
+				<li class="nav-item"><a th:href="@{/notas}"
+					class="nav-link px-2 ">Notes</a></li>
+				<li class="nav-item"><a th:href="@{/usuarios}"
+					class="nav-link px-2 ">Usuaris</a></li>
+				<li class="nav-item"><a th:href="@{/registros}"
+					class="nav-link px-2 ">Registres</a></li>
+			</ul>
+			<div class="footer-text text-center">
+				<img class="bi mx-2" src="media/procesador_verde_claro.png"
+					width="25" height="auto"> </img> Copyright ©
+				<script>
+					document.write(new Date().getFullYear());
+				</script>
+				Apinzart, Inc
+			</div>
+
+			<nav class="container px-5  py-2 navredes nav my-2">
+				<a class="flex-sm-fill text-sm-center nav-link" target="_blank"
+					href="#"> <i class="fa-brands fa-github"></i>
+				</a> <a class="flex-sm-fill text-sm-center nav-link" target="_blank"
+					href="#"> <i class="fa-brands fa-linkedin "></i>
+
+				</a> <a class="flex-sm-fill text-sm-center nav-link" target="_blank"
+					href="tel:+34678567876"> <i class="fa-solid fa-phone"></i>
+
+				</a> <a class="flex-sm-fill text-sm-center nav-link" target="_blank"
+					href="skype:aquí_el_usuario_de_skype?call"> <i
+					class="fa-brands fa-skype"></i>
+
+				</a> <a class="flex-sm-fill text-sm-center nav-link" target="_blank"
+					href="mailto:correo@example.com?subject=Consulta"> <i
+					class="fa-solid fa-envelope"></i>
+
+				</a> <a class="flex-sm-fill text-sm-center nav-link" target="_blank"
+					href="https://api.whatsapp.com/send?phone=0123456789&text=Escribeme por whatsapp!">
+					<i class="fa-brands fa-whatsapp"></i>
+
+				</a>
+			</nav>
+
 		</div>
 
-		<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			<li class="ms-3"><a class="text-body-secondary" href="#"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#twitter"></use></svg></a></li>
-			<li class="ms-3"><a class="text-body-secondary" href="#"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#instagram"></use></svg></a></li>
-			<li class="ms-3"><a class="text-body-secondary" href="#"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#facebook"></use></svg></a></li>
-		</ul>
-	</footer>
 
+	</footer>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

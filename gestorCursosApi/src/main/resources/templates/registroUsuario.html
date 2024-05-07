@@ -3,32 +3,57 @@
 	xmlns:th="http://www.thymeleaf.org">
 <title>GdC - Registre Usuari</title>
 <main>
+	<section id="formPersonal" class="container">
+		
+			<h1 class="tituloColor mt-5 mb-3">Registre d'usuaris</h1>
 
-	<h1>Registro Nuevo</h1>
+				<div
+					class="me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden col-md-8 offset-md-2">
+					<form class="form needs-validation" action="#"
+						th:action="@{/registroUsuario}" th:object="${usuario}"
+						method="post">
+						<input type="hidden" th:field="*{id}">
+						<div class="mb-3">
+							<!-- Campo de texto para el nombre -->
+							<label class="form-label" for="nombre">Usuari</label> <input
+								class="form-control" placeholder="nom" th:field="*{nombre}"
+								type="text" id="nombre" name="nombre" required>
+							<div class="invalid-feedback">Introdueix un usuari correcte</div>
+							<span th:if="${#fields.hasErrors('nombre')}"
+								th:errors="*{nombre}"></span>
+						</div>
+						<div class="mb-3">
+							<!-- Campo de correo electrónico -->
+							<label class="form-label" for="email">Correu elctrónic</label> <input
+								type="email" class="form-control" placeholder="nom@email.com"
+								id="email" name="email" th:field="*{email}" required>
+							<div class="invalid-feedback">Introdueix un correu vàlid</div>
+							<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+						</div>
+						<div class="mb-3">
+							<!-- Campo de contraseña -->
+							<label class="form-label" for="password">Contrasenya</label> <input
+								type="password" class="form-control" placeholder="******"
+								id="password" name="password" th:field="*{password}" required>
+							<div class="invalid-feedback">Introdueix una contrasenya correcte</div>
+							<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+						</div>
+						
+						<hr class="my-4">
+						
+						<div class="mb-3">
+							<!-- Campo de rol -->
+							<label class="form-label" for="rol">Rol</label> <input
+								type="text" class="form-control" placeholder="ADMIN o USER"
+								id="rol" name="rol" th:field="*{rol}" required>
+							<div class="invalid-feedback">Introdueix una rol correcte</div>
+							<span th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></span>
+						</div>
 
-	<form action="#" th:action="@{/registroUsuario}"
-		th:object="${usuario}" method="post">
-		<input type="hidden" th:field="*{id}">
-		<label for="nombre">Name</label> <input type="text" th:field="*{nombre}"
-			id="nombre" placeholder="Nombre"> <span
-			th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span> 
-		<label
-			for="email">Email</label> <input type="email" th:field="*{email}"
-			id="email" placeholder="Email"> <span
-			th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span> 
-		<label
-			for="password">Password</label> <input type="text" th:field="*{password}"
-			id="password" placeholder="password"> <span
-			th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span> 
-		<label
-			for="rol">Rol</label> <input type="text" th:field="*{rol}"
-			id="rol" placeholder="rol"> <span
-			th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></span> 
-	<!-- 		<label
-			for="rol">Rol:</label> <select name="rol" id="rol">
-			<option value="ADMIN">ADMIN</option>
-			<option value="USER">USER</option>
-		</select>  -->
-		<input type="submit" value="Guradar">
-	</form>
+						<!-- Botón de envío -->
+						<button class="btn-personal w-100 btn btn-lg btn-primary"
+							type="submit">Registrar</button>
+					</form>
+				</div>
+	</section>
 </main>

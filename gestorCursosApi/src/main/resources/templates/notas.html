@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
 	xmlns:th="http://www.thymeleaf.org">
-<title>GdC - Notas</title>
+<title>GdC - Notes</title>
 <main>
 
-	<div>
-		<h1>Notas</h1>
-		<p>INFORMACIÓ DE les NOTES: 
-		NUM.registre / nomCurs / dataCurs / dataExamen / Registre.Alumne / nota </p>
+	<section class="container" id="tabla">
+	<div class="col-md-8 offset-md-2">
 	
-		<div th:switch="${notas}">
-			<h2 th:case="null">No hay Notas Registrados</h2>
-			<div th:case="*">
-				<h2>Notas</h2>
-				<table id="tablaNotas" class="table table-striped">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Nota</th>
-							<th>Alumno</th>
-							<th>Curso</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="nota : ${notas}">
-							<td th:text="${nota.id}"></td>
-							<td th:text="${nota.valor}"></td>
-							<td th:text="${nota.alumno.id}"></td>
-							<td th:text="${nota.curso.nombreCurso}"></td>
-							<td><a th:href="@{/nota/{id}(id=${nota.id})}">Editar</a></td>
-							<td><a th:href="@{/nota/borrar/{id}(id=${nota.id})}">Borrar</a></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<p>
-				<a href="/registroNota">Añadir Nota</a>
-			</p>
-		</div>
+		<h1 class="mt-5 mb-3">Notes</h1>
 	</div>
+		<div class="container">
+
+			<div class="col-md-8 offset-md-2" th:switch="${notas}">
+				<h2 th:case="null">No hi ha notes guardades</h2>
+				<div class="table-responsive" th:case="*">
+					<table class="table table-hover mb-5 align-middle">
+						<caption>Taula notes</caption>
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Curs</th>
+								<th scope="col">Id Alumne</th>
+								<th scope="col">Nota</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<tr th:each="nota : ${notas}">
+								<td scope="row" th:text="${nota.id}"></td>
+								<td th:text="${nota.curso.nombreCurso}"></td>
+								<td th:text="${nota.alumno.id}"></td>
+								<td th:text="${nota.valor}"></td>
+								<td><small><a class="btn btn-sm btn-outline-info"
+										th:href="@{/nota/{id}(id=${nota.id})}"><i
+											class="bi bi-info-circle"></i></a> <a
+										class="btn btn-sm btn-outline-warning"
+										th:href="@{/registroNota/{id}(id=${nota.id})}"><i
+											class="bi bi-pencil-square"></i></a> <a
+										class="btn btn-sm btn-outline-danger"
+										th:href="@{/nota/borrar/{id}(id=${nota.id})}"><i
+											class="bi bi-trash"></i></a></small></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div>
+					<a class="btn btn-primary btn-personal" href="/registroNota"><i
+						class="bi bi-plus-circle mr-2"></i>Afegir Nota</a>
+				</div>
+			</div>
+		</div>
 	
-	
+	</section>
+
 </main>

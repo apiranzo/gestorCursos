@@ -3,35 +3,50 @@
 	xmlns:th="http://www.thymeleaf.org">
 <title>GdC - Usuaris</title>
 <main>
-	
-		<h1>Usuarios</h1>
 
-		<div th:switch="${usuarios}">
-			<h2 th:case="null">No hay usuarios Registrados</h2>
-			<div th:case="*">
-				<table class="tablaPersonal table table-striped">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Correo</th>
-							<th>Rol</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="usuario : ${usuarios}">
-							<td th:text="${usuario.nombre}"></td>
-							<td th:text="${usuario.email}"></td>
-							<td th:text="${usuario.rol}"></td>
-							<td><a th:href="@{/registroUsuario/{id}(id=${usuario.id})}">Editar</a></td>
-							<td><a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar</a></td>
-						</tr>
-					</tbody>
-				</table>
+	<section id="tabla">
+		<h1 class="mt-5 mb-3">Usuaris</h1>
+		<div class="container">
+
+			<div class="col-md-8 offset-md-2" th:switch="${usuarios}">
+				<h2 th:case="null">No hi ha usuaris registrats</h2>
+				<div class="table-responsive" th:case="*">
+					<table class="table table-hover mb-5 align-middle">
+						<caption>Taula usuaris</caption>
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Correo</th>
+								<th scope="col">Rol</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<tr th:each="usuario : ${usuarios}">
+								<td scope="row" th:text="${usuario.id}"></td>
+								<td th:text="${usuario.nombre}"></td>
+								<td th:text="${usuario.email}"></td>
+								<td th:text="${usuario.rol}"></td>
+								<td><small><a class="btn btn-sm btn-outline-info"
+										th:href="@{/usuario/{id}(id=${usuario.id})}"><i
+											class="bi bi-info-circle"></i></a> <a
+										class="btn btn-sm btn-outline-warning"
+										th:href="@{/registroUsuario/{id}(id=${usuario.id})}"><i
+											class="bi bi-pencil-square"></i></a> <a
+										class="btn btn-sm btn-outline-danger"
+										th:href="@{/usuario/borrar/{id}(id=${usuario.id})}"><i
+											class="bi bi-trash"></i></a></small></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div>
+					<a class="btn btn-primary btn-personal" href="/registroUsuario"><i
+						class="bi bi-plus-circle mr-2"></i>Registrar Usuari</a>
+				</div>
 			</div>
-			<p>
-				<a href="/registroUsuario">Añadir Usuario</a>
-			</p>
-		</div>	
+		</div>
+	</section>
 </main>

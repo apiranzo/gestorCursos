@@ -3,41 +3,48 @@
 	xmlns:th="http://www.thymeleaf.org">
 <title>GdC - Alumnes</title>
 <main>
-	<div>
-		<h1>Alumnes</h1>
-		
-		<p>INFORMACIÓ DELS ALUMNES: 
-		NUM.registre / nom / curs / apteNoapte </p>
+	<section id="tabla">
+		<h1 class="mt-5 mb-3">Alumnes</h1>
+		<div class="container">
 
-		<div th:switch="${alumnos}">
-			<h2 th:case="null">No hay Alumnos Registrados</h2>
-			<div th:case="*">
-				<h2>Alumnos</h2>
-				<table>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Nombre</th>
-							<th>Apellidos</th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="alumno : ${alumnos}">
-							<td th:text="${alumno.id}"></td>
-							<td th:text="${alumno.nombre}"></td>
-							<td th:text="${alumno.apellidos}"></td>
-							<td><a th:href="@{/alumno/{id}(id=${alumno.id})}">Ver</a></td>
-							<td><a th:href="@{/registroAlumno/{id}(id=${alumno.id})}">Editar</a></td>
-							<td><a th:href="@{/alumno/borrar/{id}(id=${alumno.id})}">Borrar</a></td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-md-8 offset-md-2" th:switch="${alumnos}">
+				<h2 th:case="null">No hi ha alumnes registrats</h2>
+				<div class="table-responsive" th:case="*">
+					<table class="table table-hover mb-5 align-middle">
+						<caption>Taula alumnes</caption>
+						<thead>
+							<tr>
+								<th scope="col ">#</th>
+								<th scope="col ">Nom</th>
+								<th scope="col">Cognom</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<tr th:each="alumno : ${alumnos}">
+								<td scope="row" th:text="${alumno.id}"></td>
+								<td th:text="${alumno.nombre}"></td>
+								<td th:text="${alumno.apellidos}"></td>
+								<td><small><a class="btn btn-sm btn-outline-info"
+										th:href="@{/alumno/{id}(id=${alumno.id})}"><i
+											class="bi bi-info-circle"></i></a> <a
+										class="btn btn-sm btn-outline-warning"
+										th:href="@{/registroAlumno/{id}(id=${alumno.id})}"><i
+											class="bi bi-pencil-square"></i></a> <a
+										class="btn btn-sm btn-outline-danger"
+										th:href="@{/alumno/borrar/{id}(id=${alumno.id})}"><i
+											class="bi bi-trash"></i></a></small></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div>
+					<a class="btn btn-primary btn-personal" href="/registroAlumno"><i
+						class="bi bi-plus-circle mr-2"></i>Afegir alumne</a>
+				</div>
 			</div>
-			<p>
-				<a href="/registroAlumno">Añadir Alumno</a>
-			</p>
 		</div>
+	</section>
+
 </main>
