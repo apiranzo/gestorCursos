@@ -27,6 +27,7 @@ public class NotaController {
 	@GetMapping("notas")
 	private String listadonotas(Model modelo) {
 		modelo.addAttribute("notas", gestorServicio.listarNotas());
+		modelo.addAttribute("cursos", gestorServicio.listarCursos());
 
 		return "notas";
 	}
@@ -35,6 +36,7 @@ public class NotaController {
 	public String verUnnota(@PathVariable("id") Long id, Model model) {
 
 		model.addAttribute("nota", gestorServicio.verNota(id));
+		
 
 		return "nota";
 	}
@@ -47,17 +49,20 @@ public class NotaController {
 	
 	// REGISTRO Nota
 	@GetMapping("registroNota")
-	public String registronota(Nota nota) {
+	public String registronota(Nota nota, Model modelo) {
+		modelo.addAttribute("cursos", gestorServicio.listarCursos());
 		return "registroNota";
 	}
 	@GetMapping("registroNota/{id}")
 	public String registronota(@PathVariable("id") Long id, Model model) {
 		
 		model.addAttribute("nota", gestorServicio.verNota(id));
+		model.addAttribute("cursos", gestorServicio.listarCursos());
 		return "registroNota";
 	}
 	@PostMapping("registroNota")
 	public String postRegistronota(@Valid Nota nota, BindingResult bindingResult, Model modelo) {
+		modelo.addAttribute("cursos", gestorServicio.listarCursos());
 		if (bindingResult.hasErrors()) {
 			return "registroNota";
 		}
