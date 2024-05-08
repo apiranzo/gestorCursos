@@ -13,6 +13,9 @@ import com.pejo.anna.gestorCursosApi.repositorios.AlumnoRepository;
 import com.pejo.anna.gestorCursosApi.repositorios.CursoRepository;
 import com.pejo.anna.gestorCursosApi.repositorios.NotaRepository;
 
+import lombok.extern.java.Log;
+
+@Log
 @Service
 public class GestorServiceImpl implements GestorService{
 	
@@ -26,7 +29,6 @@ public class GestorServiceImpl implements GestorService{
 	@Autowired
 	private NotaRepository notaRepository;
 	
-	private InicializacionMock initMock;
 
 	// METHODS IMPLEMENTADOS
 	@Override
@@ -48,10 +50,15 @@ public class GestorServiceImpl implements GestorService{
 	@Override
 	public void modificarAlumno(Alumno alumno) {
 		alumnoRepository.save(alumno);
+		log.info("Se ha añadido el alumno " + alumno);
 	}
 
 	@Override
 	public void borrarAlumno(Long id) {
+		if(!alumnoRepository.existsById(id)) {
+			log.warning("Se ha intentado borrar un alumno que no existe: " + id);
+			throw new ServiciosException("No existe el alumno a borrar");
+		}	
 		alumnoRepository.deleteById(id);
 	}
 
@@ -59,6 +66,7 @@ public class GestorServiceImpl implements GestorService{
 	@Override
 	public void anadirCurso(Curso curso) {
 		cursoRepository.save(curso);
+		log.info("se ha añadido el curso: "+ curso);
 	}
 
 	@Override
@@ -73,11 +81,19 @@ public class GestorServiceImpl implements GestorService{
 
 	@Override
 	public void modificarCurso(Curso curso) {
+		if(!cursoRepository.existsById(curso.getId())) {
+			log.warning("Se ha intentado modificar un curso que no existe: ");
+			throw new ServiciosException("No existe el curso a modificar");
+		}	
 		cursoRepository.save(curso);
 	}
 
 	@Override
 	public void borrarCurso(Long id) {
+		if(!cursoRepository.existsById(id)) {
+			log.warning("Se ha intentado borrar un curso que no existe: " + id);
+			throw new ServiciosException("No existe el curso a borrar");
+		}	
 		cursoRepository.deleteById(id);
 	}
 	
@@ -85,6 +101,7 @@ public class GestorServiceImpl implements GestorService{
 	@Override
 	public void anadirNota(Nota nota) {
 		notaRepository.save(nota);
+		log.info("se ha añadido la nota: " + nota);
 	}
 
 	@Override
@@ -104,6 +121,10 @@ public class GestorServiceImpl implements GestorService{
 
 	@Override
 	public void borrarNota(Long id) {
+		if(!notaRepository.existsById(id)) {
+			log.warning("Se ha intentado borrar una nota que no existe: " + id);
+			throw new ServiciosException("No existe la nota a borrar");
+		}	
 		notaRepository.deleteById(id);
 	}
 	
