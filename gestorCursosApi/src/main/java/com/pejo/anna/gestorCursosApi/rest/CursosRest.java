@@ -9,38 +9,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pejo.anna.gestorCursosApi.entidades.Usuario;
-import com.pejo.anna.gestorCursosApi.servicios.ApiService;
+import com.pejo.anna.gestorCursosApi.entidades.Curso;
+import com.pejo.anna.gestorCursosApi.servicios.GestorService;
 
 @RestController
-@RequestMapping("/api/usuarios")
-public class UsuariosRest {
+@RequestMapping("/api/cursos")
+public class CursosRest {
 
 	// VARIABLES DE SERVICIO
 	@Autowired
-	private ApiService apiServicio;
+	private GestorService gestorSericio;
 
 	// CONTROLADOR USUARIOS
 	@GetMapping("/")
-	public Iterable<Usuario> listadoUsuarios(){
-		return apiServicio.listarUsuarios();
+	public Iterable<Curso> listadoCursos() {
+		return gestorSericio.listarCursos();
 	}
+
 	@GetMapping("/{id}")
-	public Usuario usuarioPorId(@PathVariable Long id) {
-		return apiServicio.verUsuario(id);
+	public Curso cursoPorId(@PathVariable Long id) {
+		return gestorSericio.verCurso(id);
 	}
+
 	@PostMapping("/")
-	public Usuario registrarUsuario(@RequestBody Usuario usuario) {
-		apiServicio.anadirUsuario(usuario);
-		return usuario;
+	public Curso registrarCurso(@RequestBody Curso curso) {
+		gestorSericio.anadirCurso(curso);
+		return curso;
 	}
+
 	@DeleteMapping("/{id}")
-	public void borrarUsuario(@PathVariable Long id) {
-		apiServicio.borrarUsuario(id);
+	public void borrarCurso(@PathVariable Long id) {
+		gestorSericio.borrarCurso(id);
 	}
-	
-	
-	
-	
 
 }
