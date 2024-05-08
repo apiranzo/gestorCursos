@@ -5,9 +5,10 @@
 <main>
 	<div>
 		<h1>Curs</h1>
-		
-		<p>INFORMACIÓ DEl curs: 
-		NUM.registre / NomcURS / Data / aLUMNES curs / totalAlumnes / Alumnes Aprobats / Alumnes NO presentats / % curs </p>
+
+		<p>INFORMACIÓ DEl curs: NUM.registre / NomcURS / Data / aLUMNES
+			curs / totalAlumnes / Alumnes Aprobats / Alumnes NO presentats / %
+			curs</p>
 
 		<div th:switch="${curso}">
 			<h2 th:case="null">No hay cursos Registrados</h2>
@@ -18,30 +19,30 @@
 				<p th:text="${porcentajeAprobados}"></p>
 				<p th:text="${noPresentados}"></p>
 				<div>
-		<h2>Alumnos Aprobados</h2>
+					<h2>Alumnos Aprobados</h2>
 
-		<div th:switch="${alumnosAprobados}">
-			<h2 th:case="null">No hay Alumnos Aprobados</h2>
-			<div th:case="*">
-				<table>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Nombre</th>
-							<th>Apellidos</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="alumnoAprobado : ${alumnosAprobados}">
-							<td th:text="${alumnoAprobado.id}"></td>
-							<td th:text="${alumnoAprobado.nombre}"></td>
-							<td th:text="${alumnoAprobado.apellidos}"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+					<div th:switch="${alumnosAprobados}">
+						<h2 th:case="null">No hay Alumnos Aprobados</h2>
+						<div th:case="*">
+							<table>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nombre</th>
+										<th>Apellidos</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="alumnoAprobado : ${alumnosAprobados}">
+										<td th:text="${alumnoAprobado.id}"></td>
+										<td th:text="${alumnoAprobado.nombre}"></td>
+										<td th:text="${alumnoAprobado.apellidos}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -75,6 +76,76 @@
 				<a href="/registroAlumno">Añadir Alumno</a>
 			</p>
 		</div>
+	</div>
+
+	<div class="container">
+		<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+			<div class="col-md-6 px-0">
+				<h1 class="display-4 font-italic" th:text="${curso.nombreCurso}">Title
+					of a longer featured blog post</h1>
+				<p class="lead my-3" th:text="${curso.nombreCurso}">Multiple
+					lines of text that form the lede, informing new readers quickly and
+					efficiently about what's most interesting in this post's contents.</p>
+			</div>
+		</div>
+		<div class="jumbotron">
+			<div class="row w-100">
+				<div class="col-md-3">
+					<div class="card border-info mx-sm-1 p-3 text-center">
+						<div class="card border-info shadow text-info p-3 my-card">
+							<span class="fa fa-car" aria-hidden="true"></span>
+						</div>
+						<div class="text-info text-center mt-3">
+							<h4>Total alumnes</h4>
+						</div>
+						<div class="text-info text-center mt-2">
+							<h1 th:text="${totalAlumnosCurso}"></h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card border-success mx-sm-1 p-3">
+						<div class="card border-success shadow text-success p-3 my-card">
+							<span class="fa fa-eye" aria-hidden="true"></span>
+						</div>
+						<div class="text-success text-center mt-3">
+							<h4>Total Aprobats</h4>
+						</div>
+						<div class="text-success text-center mt-2">
+							<h1 th:text="${totalAprobados}"></h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card border-danger mx-sm-1 p-3">
+						<div class="card border-danger shadow text-danger p-3 my-card">
+							<span class="fa fa-heart" aria-hidden="true"></span>
+						</div>
+						<div class="text-danger text-center mt-3">
+							<h4>Percentatge aprobat</h4>
+						</div>
+						<div class="text-danger text-center mt-2">
+							<h1 th:text="${porcentajeAprobados}">346</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card border-warning mx-sm-1 p-3">
+						<div class="card border-warning shadow text-warning p-3 my-card">
+							<span class="fa fa-inbox" aria-hidden="true"></span>
+						</div>
+						<div class="text-warning text-center mt-3">
+							<h4>No presentats</h4>
+						</div>
+						<div class="text-warning text-center mt-2">
+							<h1 th:text="${noPresentados}">346</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</div>
 
 

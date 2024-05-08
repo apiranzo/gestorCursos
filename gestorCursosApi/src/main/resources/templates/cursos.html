@@ -6,49 +6,54 @@
 
 	<section id="tabla">
 		<h1 class="mt-5 mb-3">Cursos</h1>
-		<div class="container">
+		<div class="container mb-5" th:switch="${cursos}">
 
-			<div class="col-md-8 offset-md-2"  th:switch="${cursos}">
 				<h2 th:case="null">No hi ha cursos registrats</h2>
-				<div class="table-responsive" th:case="*">
-					<table class="table table-hover mb-5 align-middle">
-						<caption>Taula cursos</caption>
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Nom del Curs</th>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody class="table-group-divider">
-							<tr th:each="curso : ${cursos}">
-								<td scope="row" th:text="${curso.id}"></td>
-								<td th:text="${curso.nombreCurso}"></td>
-								<td><small><a class="btn btn-sm btn-outline-info"
-										th:href="@{/curso/{id}(id=${curso.id})}"><i
-											class="bi bi-info-circle"></i></a> <a
-										class="btn btn-sm btn-outline-warning"
-										th:href="@{/registroCurso/{id}(id=${curso.id})}"><i
-											class="bi bi-pencil-square"></i></a> <a
-										class="btn btn-sm btn-outline-danger"
-										th:href="@{/curso/borrar/{id}(id=${curso.id})}"><i
-											class="bi bi-trash"></i></a></small></td>
-								<td><small><a
-										class="btn btn-sm btn-primary btn-personal"
-										href="/registroCurso"><i class="bi bi-plus-circle mr-2"></i>Afegir
-											alumne</a></small></td>
-							</tr>
-						</tbody>
-					</table>
+				<div th:case="*" class="p-5 row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-4 g-5"
+					>
+					<div th:each="curso: ${cursos}" class="card-group">
+						<div class="p-3 linkscards border-0 card align-items-center">
+							<img th:src="${'https://picsum.photos/300/200?' + curso.id}"
+								class="card-img-top" alt="...">
+							<div class="card-body text-center mb-0 pb-0">
+								<h5 th:text="${curso.nombreCurso}" class="card-title">Card
+									title</h5>
 
+								<dl class="row center">
+									<small><a class="btn btn-sm btn-outline-info"
+									th:href="@{/curso/{id}(id=${curso.id})}"><i
+										class="bi bi-info-circle"></i></a> <a
+									class="btn btn-sm btn-outline-warning"
+									th:href="@{/registroCurso/{id}(id=${curso.id})}"><i
+										class="bi bi-pencil-square"></i></a> <a
+									class="btn btn-sm btn-outline-danger"
+									th:href="@{/curso/borrar/{id}(id=${curso.id})}"><i
+										class="bi bi-trash"></i></a></small>
+							</dl>
+
+							</div>
+							<div
+								class="mt-0 mp-0 card-footer d-flex justify-content-around border-0">
+								<small><a
+									class="btn btn-sm btn-primary btn-personal-contrario"
+									href="/registroCurso"><i class="bi bi-plus-circle mr-2"></i>Afegir
+										alumne</a></small></small>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div>
-					<a class="btn btn-primary btn-personal" href="/registroCurso"><i
-						class="bi bi-plus-circle mr-2"></i>Afegir curs</a>
-				</div>
-			</div>
+
+
+
+		<div>
+			<a class="btn btn-primary btn-personal" href="/registroCurso"><i
+				class="bi bi-plus-circle mr-2"></i>Afegir curs</a>
 		</div>
+			</div>
+
+
+
 	</section>
-	
+
+
 </main>

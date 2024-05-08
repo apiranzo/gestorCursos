@@ -46,56 +46,18 @@
 }
 
 
-/* MEDIA */
-#media{
-    padding: var(--pading-general);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-    
-
-    & #loremphoto h1{
-        color:var(--color-titulos-medio-contrario)!important;
-        & button{
-            background-color: var(--color-fondo-forms)!important;
-            border: var(--color-fondo-forms)!important;
-            color:white!important;
-        }
-        
-        & button:hover{
-            background-color: var(--color-fondo)!important;
-        }
-    }
-
-    & #loremvideo{
-        color:var(--color-titulos-claro);
-    }
-    & #loremaudio{
-        background-color: var(--color-titulos-claro-transparente)!important;
-    }
-    & audio{
-        width: 100%; /* Ocupa todo el ancho disponible */
-        max-width: 400px; /* Limita el ancho máximo */
-        
-    }
-}
 
 /* Links card*/
-#linkscards {
+.linkscards {
+	
 
-    & .card{
-        border-color: #9da4a400!important; 
-    }
+    
     & iframe{
         border-radius: 12px;
         box-shadow: var(--shadow-suave);
     }
     & .card-footer{
-        box-shadow: var(--shadow-suave);
-        background-color: var(--color-fondo-forms);
-        ;
+         background-color: var(--white);
     }
     & a{
         text-decoration: none;

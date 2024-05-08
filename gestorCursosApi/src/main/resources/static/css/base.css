@@ -110,6 +110,18 @@ section h1, h2, h3, h4, h5, h6{
     color: var(--color-titulos-claro)!important;
     border-color:var(--color-titulos-claro-contrario)
 }
+.btn-personal-contrario{
+    background-color: var(--color-titulos-oscuro)!important;
+    border-color: var(--color-fondo-forms)!important;
+    box-shadow:2px 2px 4px #5d5d5d8f ;
+    transition: background-color, color, font-weight 0.8s ease; /* Transición para el color de fondo */
+}
+.btn-personal-contrario:hover{
+    background-color: var(--color-fondo-forms)!important;
+    color: var(--color-titulos-claro)!important;
+    
+}
+
 
 
 

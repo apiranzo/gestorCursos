@@ -19,7 +19,8 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/html.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -157,8 +158,13 @@
 	<!-- DataTables JS -->
 	<script src="js/datatables.min.js"></script>
 	<script>
+		
 		$(document).ready(function() {
-			$('.tablaPersonal').DataTable();
+			new DataTable('.tablaPersonal', {
+				paging : false,
+				scrollCollapse : true,
+				scrollY : '50vh'
+			});
 		});
 	</script>
 </body>
