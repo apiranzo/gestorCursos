@@ -54,7 +54,7 @@ public class CursoController {
 	public String borrarCurso(@PathVariable("id") Long id) {
 		gestorServicio.borrarCurso(id);
 		
-		return "cursos";
+		return "redirect:/cursos";
 	}
 	
 	// REGISTRO CURSO
